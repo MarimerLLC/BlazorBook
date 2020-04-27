@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BlazorMultiHead.Shared\BlazorMultiHead.Shared.csproj" />
     <ProjectReference Include="..\BlazorMultiHead.Ui\BlazorMultiHead.Ui.csproj" />
   </ItemGroup>
 

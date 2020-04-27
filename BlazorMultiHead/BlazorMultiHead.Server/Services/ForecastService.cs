@@ -1,4 +1,4 @@
-﻿using BlazorMultiHead.Shared;
+﻿using BlazorMultiHead.Ui.Data;
 using BlazorMultiHead.Ui.Services;
 using System;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BlazorMultiHead.Server.Services
 {
-  public class ForecastService : IWeatherForecastService
+  public class ForecastService : IForecastService
   {
     private static readonly string[] Summaries = new[]
     {

@@ -1,4 +1,4 @@
-﻿using BlazorMultiHead.Shared;
+﻿using BlazorMultiHead.Ui.Data;
 using BlazorMultiHead.Ui.Services;
 using Microsoft.AspNetCore.Components;
 using System;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BlazorMultiHead.Client.Services
 {
-  public class ForecastService : IWeatherForecastService
+  public class ForecastService : IForecastService
   {
     private HttpClient Http;
     public ForecastService(HttpClient httpClient)

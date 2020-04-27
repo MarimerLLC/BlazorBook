@@ -1,6 +1,6 @@
 using System;
 
-namespace BlazorMultiHead.Shared
+namespace BlazorMultiHead.Ui.Data
 {
   public class WeatherForecast
   {
