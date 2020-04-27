@@ -1,0 +1,75 @@
+﻿@page "/login"
+@using BlazorAuthClient.Shared
+@using System.Security.Claims
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@inject CurrentUserService CurrentUserService
+
+<h3>Login</h3>
+
+@if (!string.IsNullOrWhiteSpace(ErrorText))
+{
+  <div class="alert-danger">@ErrorText</div>
+}
+
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Username</td>
+        <td><input @bind="Credentials.Username" /></td>
+      </tr>
+      <tr>
+        <td>Password</td>
+        <td><input @bind="Credentials.Password" type="password" /></td>
+      </tr>
+    </tbody>
+  </table>
+  <button @onclick="LoginUser">Login</button>
+  <br/>
+</div>
+
+<div>
+  <p>Credentials to try:</p>
+  <ul>
+    <li>rocky, mypassword</li>
+    <li>andrew, otherpassword</li>
+  </ul>
+</div>
+
+@code {
+  private UserCredentials Credentials { get; set; } = new UserCredentials();
+  private string ErrorText { get; set; }
+
+  private async void LoginUser()
+  {
+    ErrorText = string.Empty;
+    try
+    {
+      var userinfo = await Http.PostJsonAsync<UserIdentity>("Authentication", Credentials);
+      if (userinfo.IsAuthenticated)
+      {
+        var identity = new ClaimsIdentity(userinfo.AuthenticationType);
+        foreach (var item in userinfo.Claims)
+          identity.AddClaim(new Claim(item.ClaimType, item.Claim));
+        CurrentUserService.CurrentUser = new System.Security.Claims.ClaimsPrincipal(identity);
+        NavigationManager.NavigateTo("/");
+      }
+      else
+      {
+        ErrorText = "Invalid credentials";
+      }
+    }
+    catch (Exception ex)
+    {
+      ErrorText = ex.Message;
+    }
+    StateHasChanged();
+  }
+}

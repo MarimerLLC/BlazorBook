@@ -1,0 +1,55 @@
+﻿@page "/personeditform"
+@using Data
+@using Csla.Blazor
+ 
+<h3>Person EditForm</h3>
+
+<div>@statusText</div>
+
+@if (person == null)
+{
+  <div>Loading...</div>
+}
+else
+{
+<EditForm Model="@person" OnSubmit="@FormSubmit">
+  <CslaValidator />
+  <ValidationSummary />
+  @*<div>Id @person.Id</div>*@
+  <InputText @bind-Value="person.Name" />
+  <CslaValidationMessages For="() => person.Name" />
+  <InputDate @bind-Value="person.Birthdate" />
+  <div>@person.Name is @person.Age years old</div>
+  @*<div>Object is new: @person.IsNew</div>
+  <div>Object is changed: @person.IsDirty</div>
+  <div>Object can be saved: @person.IsSavable</div>*@
+  <input type="submit" value="Save" class="btn btn-primary"
+         disabled="@(!person.IsSavable)"  />
+</EditForm>
+}
+
+@code {
+  PersonEdit person;
+  string statusText;
+
+  protected override async Task OnParametersSetAsync()
+  {
+    try
+    {
+      person = await Csla.DataPortal.FetchAsync<PersonEdit>(42);
+      statusText = "Loaded";
+    }
+    catch (Exception ex)
+    {
+      statusText = $"ERROR: {ex.ToString()}";
+    }
+  }
+
+  private async void FormSubmit(EditContext context)
+  {
+    statusText = "Saving...";
+    await person.SaveAndMergeAsync();
+    statusText = "Saved";
+    StateHasChanged();
+  }
+}

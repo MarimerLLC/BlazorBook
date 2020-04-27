@@ -1,0 +1,14 @@
+﻿@page "/logout"
+@using System.Security.Claims
+@inject NavigationManager NavigationManager
+@inject CurrentUserService CurrentUserService
+
+@code {
+  protected override void OnInitialized()
+  {
+    var identity = new ClaimsIdentity();
+    CurrentUserService.CurrentUser = new System.Security.Claims.ClaimsPrincipal(identity);
+    base.OnInitialized();
+    NavigationManager.NavigateTo("/");
+  }
+}

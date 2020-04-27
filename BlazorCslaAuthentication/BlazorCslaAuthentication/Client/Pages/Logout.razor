@@ -1,0 +1,20 @@
+﻿@page "/logout"
+@using System.Security.Claims
+@using Csla.Blazor.Client.Authentication
+@inject CslaUserService userService
+@inject NavigationManager nav
+
+<h3>Logout</h3>
+
+Are you sure you want to log out?
+
+<button @onclick="LogoutUser" class="btn btn-primary">Logout</button>
+
+@code {
+  private void LogoutUser()
+  {
+    userService.CurrentUser = 
+      new ClaimsPrincipal(new ClaimsIdentity());
+    nav.NavigateTo("/");
+  }
+}

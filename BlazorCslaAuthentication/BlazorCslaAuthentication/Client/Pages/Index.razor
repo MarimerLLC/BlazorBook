@@ -1,0 +1,38 @@
+﻿@page "/"
+@using Csla.Rules
+@using Csla.Blazor
+@using BlazorCslaAuthentication.Shared
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<p>
+  <div>Username: @Csla.ApplicationContext.User.Identity.Name</div>
+  <div>IsAuthenticated: @Csla.ApplicationContext.User.Identity.IsAuthenticated</div>
+</p>
+
+<div>(@Csla.ApplicationContext.User.GetType().FullName)</div>
+<div>(@Csla.ApplicationContext.User.Identity.GetType().FullName)</div>
+<p>
+  <AuthorizeView>
+    <Authorized>
+      User authorized
+    </Authorized>
+    <NotAuthorized>
+      User NOT authorized
+    </NotAuthorized>
+  </AuthorizeView>
+  <div>in role personcreator: @Csla.ApplicationContext.User.IsInRole("PersonCreator")</div>
+</p>
+
+<p>
+  <AuthorizeView Policy="@(CslaPolicy.GetPolicy(AuthorizationActions.CreateObject, typeof(PersonEdit)))">
+    <Authorized>
+      User can create a person object
+    </Authorized>
+    <NotAuthorized>
+      User can NOT create a person object
+    </NotAuthorized>
+  </AuthorizeView>
+</p>

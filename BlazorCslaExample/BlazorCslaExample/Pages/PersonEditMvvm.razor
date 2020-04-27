@@ -1,0 +1,58 @@
+﻿@page "/personeditmvvm"
+@page "/personeditmvvm/{id}"
+@using Data
+@using Csla.Blazor
+@inject ViewModel<PersonEdit> vm
+
+<h3>Person Edit MVVM</h3>
+
+<div>@statusText</div>
+<p class="text-danger">@vm.ViewModelErrorText</p>
+
+@if (vm.Model == null)
+{
+  <div>Loading...</div>
+}
+else
+{
+  <div>
+    <LabelText Property="vm.GetPropertyInfo(nameof(vm.Model.Id))" />
+    is @vm.Model.Id
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <DisplayRow Property="vm.GetPropertyInfo(nameof(vm.Model.Id))" />
+      <TextInputRow Property="vm.GetPropertyInfo(nameof(vm.Model.Name))" />
+      <DateInputRow Property="vm.GetPropertyInfo(nameof(vm.Model.Birthdate))" />
+      <DisplayRow Property="vm.GetPropertyInfo(nameof(vm.Model.Age))" />
+    </tbody>
+  </table>
+  <button @onclick="vm.SaveAsync" disabled="@(!vm.Model.IsSavable)">Save</button>
+}
+
+@code {
+  [Parameter]
+  public string id { get; set; }
+
+  private string statusText;
+
+  protected override void OnInitialized()
+  {
+    vm.Saved += () => statusText = "Saved";
+    vm.ModelPropertyChanged += async (s, e) => await InvokeAsync(() => StateHasChanged());
+  }
+
+  protected override async Task OnParametersSetAsync()
+  {
+    if (string.IsNullOrWhiteSpace(id))
+      await vm.RefreshAsync();
+    else
+      await vm.RefreshAsync(int.Parse(id));
+  }
+}

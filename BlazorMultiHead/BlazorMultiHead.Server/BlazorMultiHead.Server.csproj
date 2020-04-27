@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BlazorMultiHead.Shared\BlazorMultiHead.Shared.csproj" />
+    <ProjectReference Include="..\BlazorMultiHead.Ui\BlazorMultiHead.Ui.csproj" />
+  </ItemGroup>
+
+</Project>

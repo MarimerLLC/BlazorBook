@@ -1,0 +1,12 @@
+﻿@if (Property.CanRead)
+{
+  <tr>
+    <td><LabelText Property="@Property" /></td>
+    <td>@Property.Value</td>
+  </tr>
+}
+
+@code {
+  [Parameter]
+  public Csla.Blazor.IPropertyInfo Property { get; set; }
+}

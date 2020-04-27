@@ -1,0 +1,7 @@
+﻿<h3>Child</h3>
+
+<p>@Title (from child)</p>
+
+@code {
+  [CascadingParameter(Name = "Title")] string Title { get; set; }
+}

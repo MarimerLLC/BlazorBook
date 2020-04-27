@@ -1,0 +1,26 @@
+﻿@page "/"
+@inject NavigationManager NavigationManager
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<br />
+<a href="/counter/42">Counter</a>
+<br />
+<button @onclick="GoToCounter">Counter</button>
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+<CascadingValue Value="@Title" Name="Title">
+  <Parent />
+</CascadingValue>
+
+@code {
+  string Title = "42";
+
+  private void GoToCounter()
+  {
+    NavigationManager.NavigateTo("counter/123");
+  }
+}

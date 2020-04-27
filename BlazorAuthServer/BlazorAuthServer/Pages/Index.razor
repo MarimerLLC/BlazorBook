@@ -1,0 +1,17 @@
+﻿@page "/"
+
+<h1>Hello, world!</h1>
+
+<p>Welcome to your new app.</p>
+
+<AuthorizeView Policy="IsAdmin">
+  <Authorized>
+    User is authorized
+  </Authorized>
+  <NotAuthorized>
+    User is not authorized
+  </NotAuthorized>
+  <Authorizing>
+    Authorization is occurring
+  </Authorizing>
+</AuthorizeView>
