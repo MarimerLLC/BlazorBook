@@ -1,5 +1,5 @@
 ﻿@page "/personeditmvvm"
-@page "/personeditmvvm/{id}"
+@page "/personeditmvvm/{id:int}"
 @using Data
 @using Csla.Blazor
 @inject ViewModel<PersonEdit> vm
@@ -38,7 +38,7 @@ else
 
 @code {
   [Parameter]
-  public string id { get; set; }
+  public int id { get; set; }
 
   private string statusText;
 
@@ -50,9 +50,9 @@ else
 
   protected override async Task OnParametersSetAsync()
   {
-    if (string.IsNullOrWhiteSpace(id))
-      await vm.RefreshAsync();
+    if (id == 0)
+      await vm.RefreshAsync(() => Csla.DataPortal.CreateAsync<PersonEdit>());
     else
-      await vm.RefreshAsync(int.Parse(id));
+      await vm.RefreshAsync(() => Csla.DataPortal.FetchAsync<PersonEdit>(id));
   }
 }

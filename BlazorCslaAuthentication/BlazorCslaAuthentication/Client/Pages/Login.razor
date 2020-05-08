@@ -18,6 +18,7 @@
 }
 else
 {
+  <p>Enter any non-empty values for username and password.</p>
   <table>
     <thead>
       <tr>
@@ -41,7 +42,7 @@ else
 
   protected override async Task OnParametersSetAsync()
   {
-    await vm.RefreshAsync();
+    await vm.RefreshAsync(() => DataPortal.CreateAsync<UserCredentials>());
   }
 
   private async void VerifyCredentials()
