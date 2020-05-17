@@ -5,19 +5,17 @@ using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace BlazorMultiHead.Client.Services
+public class ForecastService : IForecastService
 {
-  public class ForecastService : IForecastService
+  private HttpClient Http;
+  public ForecastService(HttpClient httpClient)
   {
-    private HttpClient Http;
-    public ForecastService(HttpClient httpClient)
-    {
-      Http = httpClient;
-    }
+    Http = httpClient;
+  }
 
-    public async Task<WeatherForecast[]> GetForecastAsync(DateTime time)
-    {
-      return await Http.GetJsonAsync<WeatherForecast[]>("sample-data/weather.json");
-    }
+  public async Task<WeatherForecast[]> GetForecastAsync(DateTime time)
+  {
+    return await Http.GetJsonAsync<WeatherForecast[]>(
+      "sample-data/weather.json");
   }
 }

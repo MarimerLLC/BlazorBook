@@ -1,12 +1,11 @@
-﻿@page "/fetchdata"
-
-@using BlazorMultiHead.Ui.Data
-@using BlazorMultiHead.Ui.Services
+@page "/fetchdata"
+@using Data
+@using Services
 @inject IForecastService ForecastService
 
 <h1>Weather forecast</h1>
 
-<p>This component demonstrates fetching data from a service.</p>
+<p>This component demonstrates fetching data from the server.</p>
 
 @if (forecasts == null)
 {

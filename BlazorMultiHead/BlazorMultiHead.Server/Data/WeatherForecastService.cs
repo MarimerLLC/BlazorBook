@@ -1,17 +1,17 @@
-﻿using BlazorMultiHead.Ui.Data;
+using BlazorMultiHead.Ui.Data;
 using BlazorMultiHead.Ui.Services;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BlazorMultiHead.Server.Services
+namespace BlazorMultiHead.Server.Data
 {
-  public class ForecastService : IForecastService
+  public class WeatherForecastService : IForecastService
   {
     private static readonly string[] Summaries = new[]
     {
-      "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+        };
 
     public Task<WeatherForecast[]> GetForecastAsync(DateTime startDate)
     {
