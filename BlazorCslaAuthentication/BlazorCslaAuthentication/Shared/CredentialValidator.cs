@@ -45,12 +45,6 @@ namespace BlazorCslaAuthentication.Shared
           "PersonCreator"
         };
       }
-      else
-      {
-        Name = string.Empty;
-        AuthenticationType = string.Empty;
-        Roles = new Csla.Core.MobileList<string>();
-      }
     }
   }
 }
