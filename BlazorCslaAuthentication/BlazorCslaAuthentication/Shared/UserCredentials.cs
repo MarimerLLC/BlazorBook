@@ -4,6 +4,11 @@ using Csla;
 
 namespace BlazorCslaAuthentication.Shared
 {
+  /// <summary>
+  /// Responsible for getting user credentials
+  /// from the user and acting as criteria for
+  /// the CredentialValidator type.
+  /// </summary>
   [Serializable]
   public class UserCredentials : BusinessBase<UserCredentials>
   {

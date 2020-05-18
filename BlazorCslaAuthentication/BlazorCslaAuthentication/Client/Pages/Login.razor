@@ -47,13 +47,13 @@ else
 
   private async void VerifyCredentials()
   {
-    var identity = await DataPortal.FetchAsync<CustomIdentity>(vm.Model);
-    var baseidentity = new ClaimsIdentity(identity.AuthenticationType);
-    baseidentity.AddClaim(new Claim(ClaimTypes.Name, identity.Name));
-    if (identity.Roles != null)
-      foreach (var item in identity.Roles)
-        baseidentity.AddClaim(new Claim(ClaimTypes.Role, item));
-    var principal = new System.Security.Claims.ClaimsPrincipal(baseidentity);
+    var userInfo = await DataPortal.FetchAsync<CredentialValidator>(vm.Model);
+    var identity = new ClaimsIdentity(userInfo.AuthenticationType);
+    identity.AddClaim(new Claim(ClaimTypes.Name, userInfo.Name));
+    if (userInfo.Roles != null)
+      foreach (var item in userInfo.Roles)
+        identity.AddClaim(new Claim(ClaimTypes.Role, item));
+    var principal = new System.Security.Claims.ClaimsPrincipal(identity);
     userService.CurrentUser = principal;
     StateHasChanged();
     nav.NavigateTo("/");

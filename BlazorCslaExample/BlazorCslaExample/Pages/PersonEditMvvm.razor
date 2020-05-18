@@ -27,10 +27,10 @@ else
       </tr>
     </thead>
     <tbody>
-      <DisplayRow Property="vm.GetPropertyInfo(nameof(vm.Model.Id))" />
-      <TextInputRow Property="vm.GetPropertyInfo(nameof(vm.Model.Name))" />
-      <DateInputRow Property="vm.GetPropertyInfo(nameof(vm.Model.Birthdate))" />
-      <DisplayRow Property="vm.GetPropertyInfo(nameof(vm.Model.Age))" />
+      <DisplayRow Property="vm.GetPropertyInfo(() => vm.Model.Id)" />
+      <TextInputRow Property="vm.GetPropertyInfo(() => vm.Model.Name)" />
+      <DateInputRow Property="vm.GetPropertyInfo(() => vm.Model.Birthdate)" />
+      <DisplayRow Property="vm.GetPropertyInfo(() => vm.Model.Age)" />
     </tbody>
   </table>
   <button @onclick="vm.SaveAsync" disabled="@(!vm.Model.IsSavable)">Save</button>
