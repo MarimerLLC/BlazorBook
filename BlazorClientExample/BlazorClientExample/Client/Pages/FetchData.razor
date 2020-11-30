@@ -33,20 +33,14 @@ else
             }
         </tbody>
     </table>
-  <button class="btn btn-primary" @onclick="LoadData">Refresh</button>
 }
 
 @code {
     private WeatherForecast[] forecasts;
 
-  private async Task LoadData()
-  {
-    forecasts = await Http.GetJsonAsync<WeatherForecast[]>("WeatherForecast");
-    //StateHasChanged();
-  }
+    protected override async Task OnInitializedAsync()
+    {
+        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("WeatherForecast");
+    }
 
-  protected override async Task OnInitializedAsync()
-  {
-    forecasts = await Http.GetJsonAsync<WeatherForecast[]>("WeatherForecast");
-  }
 }

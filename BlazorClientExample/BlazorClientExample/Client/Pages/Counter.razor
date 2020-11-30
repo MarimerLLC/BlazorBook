@@ -1,5 +1,4 @@
 ﻿@page "/counter"
-@page "/counter/{start}"
 
 <h1>Counter</h1>
 
@@ -7,27 +6,11 @@
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
-<button class="btn btn-primary" @onclick="() => IncrementCount(5)">Add 5</button>
-
-<button class="btn btn-primary" @onclick="() => currentCount--">Decrement</button>
 @code {
     private int currentCount = 0;
 
-  [Parameter]
-  public string start { get; set; }
-
-  protected override void OnParametersSet()
-  {
-    int.TryParse(start, out currentCount);
-  }
-
-  private void IncrementCount()
-  {
-    currentCount++;
-  }
-
-  private void IncrementCount(int increment)
-  {
-    currentCount += increment;
-  }
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
 }
