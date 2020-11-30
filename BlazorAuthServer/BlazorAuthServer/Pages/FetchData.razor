@@ -4,7 +4,7 @@
 @inject WeatherForecastService ForecastService
 @*@attribute [Authorize]*@
 @*@attribute [Authorize(Roles = "admin")]*@
-@attribute [Authorize(Policy = "foo")]
+@*@attribute [Authorize(Policy = "IsAdmin")]*@
 
 <h1>Weather forecast</h1>
 
