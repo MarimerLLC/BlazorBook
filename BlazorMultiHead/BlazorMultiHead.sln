@@ -1,13 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.30105.148
+VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorMultiHead.Server", "BlazorMultiHead.Server\BlazorMultiHead.Server.csproj", "{D74F8C1F-BE45-4A6F-ABEC-1885555EA593}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorMultiHead.Ui", "BlazorMultiHead.Ui\BlazorMultiHead.Ui.csproj", "{BD566EDD-F4BF-47D2-A937-E929196E4DF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorMultiHead.Client", "BlazorMultiHead.Client\BlazorMultiHead.Client.csproj", "{C22B4861-34FA-4E57-9331-0DE8FC1A5E8D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorMultiHead.Ui", "BlazorMultiHead.Ui\BlazorMultiHead.Ui.csproj", "{FA69B5AE-D253-48F1-99ED-A9D7C99E2155}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorMultiHead.Server", "BlazorMultiHead.Server\BlazorMultiHead.Server.csproj", "{A7F11A64-5B43-44C0-B6F3-533D3FD71952}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,23 +13,19 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D74F8C1F-BE45-4A6F-ABEC-1885555EA593}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D74F8C1F-BE45-4A6F-ABEC-1885555EA593}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D74F8C1F-BE45-4A6F-ABEC-1885555EA593}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D74F8C1F-BE45-4A6F-ABEC-1885555EA593}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C22B4861-34FA-4E57-9331-0DE8FC1A5E8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C22B4861-34FA-4E57-9331-0DE8FC1A5E8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C22B4861-34FA-4E57-9331-0DE8FC1A5E8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C22B4861-34FA-4E57-9331-0DE8FC1A5E8D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FA69B5AE-D253-48F1-99ED-A9D7C99E2155}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FA69B5AE-D253-48F1-99ED-A9D7C99E2155}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FA69B5AE-D253-48F1-99ED-A9D7C99E2155}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FA69B5AE-D253-48F1-99ED-A9D7C99E2155}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD566EDD-F4BF-47D2-A937-E929196E4DF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD566EDD-F4BF-47D2-A937-E929196E4DF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD566EDD-F4BF-47D2-A937-E929196E4DF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD566EDD-F4BF-47D2-A937-E929196E4DF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7F11A64-5B43-44C0-B6F3-533D3FD71952}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7F11A64-5B43-44C0-B6F3-533D3FD71952}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7F11A64-5B43-44C0-B6F3-533D3FD71952}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7F11A64-5B43-44C0-B6F3-533D3FD71952}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {001C74C3-E3CD-4CD5-974F-6F910447B6CC}
+		SolutionGuid = {491DBA95-DB79-40D1-AA0D-6146A4A7D70B}
 	EndGlobalSection
 EndGlobal
