@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,6 +24,7 @@ namespace BlazorAuthClient.Server
     {
 
       services.AddControllersWithViews();
+      services.AddRazorPages();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,6 +50,7 @@ namespace BlazorAuthClient.Server
 
       app.UseEndpoints(endpoints =>
       {
+        endpoints.MapRazorPages();
         endpoints.MapControllers();
         endpoints.MapFallbackToFile("index.html");
       });

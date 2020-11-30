@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components.Authorization;
-using static BlazorAuthClient.Client.CurrentUserService;
 
 namespace BlazorAuthClient.Client
 {

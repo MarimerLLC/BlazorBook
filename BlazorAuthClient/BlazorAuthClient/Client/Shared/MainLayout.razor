@@ -1,28 +1,29 @@
 ﻿@inherits LayoutComponentBase
-@inject CurrentUserService CurrentUserService
 
-<div class="sidebar">
-  <NavMenu />
-</div>
-
-<div class="main">
-  <div class="top-row px-4">
-    <AuthorizeView>
-      <Authorized>
-        Hello, @context.User.Identity.Name
-        <a href="Logout">Log out</a>
-      </Authorized>
-      <NotAuthorized>
-        <a href="Login">Log in</a>
-      </NotAuthorized>
-      <Authorizing>
-        Authorizing...
-      </Authorizing>
-    </AuthorizeView>
-    <a href="http://blazor.net" target="_blank" class="ml-md-auto">About</a>
+<div class="page">
+  <div class="sidebar">
+    <NavMenu />
   </div>
 
-  <div class="content px-4">
-    @Body
+  <div class="main">
+    <div class="top-row px-4 auth">
+      <AuthorizeView>
+        <Authorized>
+          Hello, @context.User.Identity.Name
+          <a href="Logout">Log out</a>
+        </Authorized>
+        <NotAuthorized>
+          <a href="Login">Log in</a>
+        </NotAuthorized>
+        <Authorizing>
+          Authorizing...
+        </Authorizing>
+      </AuthorizeView>
+      <a href="http://blazor.net" target="_blank" class="ml-md-auto">About</a>
+    </div>
+
+    <div class="content px-4">
+      @Body
+    </div>
   </div>
 </div>

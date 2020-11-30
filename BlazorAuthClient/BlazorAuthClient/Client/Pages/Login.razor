@@ -52,7 +52,8 @@
     ErrorText = string.Empty;
     try
     {
-      var userinfo = await Http.PostJsonAsync<UserIdentity>("Authentication", Credentials);
+      var response = await Http.PostAsJsonAsync("Authentication", Credentials);
+      var userinfo = await response.Content.ReadFromJsonAsync<UserIdentity>();
       if (userinfo.IsAuthenticated)
       {
         var identity = new ClaimsIdentity(userinfo.AuthenticationType);
